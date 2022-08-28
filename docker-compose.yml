@@ -1,0 +1,54 @@
+version: "3.7"
+services:
+  build_dev_image:
+    image: ${UNICO_GO_DEV_IMAGE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    security_opt:
+      - seccomp:unconfined
+  
+  # Database
+  db:
+    image: postgres
+    container_name: unico-postgresdb
+    ports:
+      - "15432:5432"
+    env_file:
+      - .env
+    security_opt:
+      - seccomp:unconfined
+
+  #Use user as 'pgadmin4@pgadmin.org' and password 'admin' at http://localhost:5051/
+  pgAdmin:
+    image: fenglc/pgadmin4
+    ports:
+      - "5051:5050"
+    depends_on:
+      - db
+    security_opt:
+      - seccomp:unconfined
+    labels:
+      - "traefik.enable=false"
+
+  # API`s
+  app:
+    image: ${UNICO_GO_DEV_IMAGE}
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/code/
+    env_file:
+      - .env
+    environment:
+      - RUNING_IN_CONTAINER=true
+    command: bash -c "/go/bin/gin -a 8000 -i run main.go"
+    depends_on:
+      - build_dev_image
+
+networks:
+  default:
+    external:
+      name: unico_network

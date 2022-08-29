@@ -44,7 +44,7 @@ services:
       - .env
     environment:
       - RUNING_IN_CONTAINER=true
-    command: bash -c "/go/bin/gin -a 8000 -i run main.go"
+    command: bash -c "/go/bin/gin -a 8000 -i run main.go >> log.txt"
     depends_on:
       - build_dev_image
 

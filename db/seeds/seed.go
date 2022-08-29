@@ -43,25 +43,23 @@ func ImportCsvFile(repo domain.FairRepository) {
 			parts = append(parts, "")
 		}
 		fair := domain.Fair{
-			Id: parts[0],
-			FairCommon: domain.FairCommon{
-				Longitude:         parts[1],
-				Latitude:          parts[2],
-				Sector:            parts[3],
-				Area:              parts[4],
-				DistrictCode:      parts[5],
-				District:          parts[6],
-				SubprefectureCode: parts[7],
-				SubprefectureName: parts[8],
-				Region5:           parts[9],
-				Region8:           parts[10],
-				FairName:          parts[11],
-				Registry:          parts[12],
-				Address:           parts[13],
-				Number:            parserNumber(parts[14]),
-				Neighborhood:      parts[15],
-				Reference:         parts[16],
-			},
+			Id:                parts[0],
+			Longitude:         parts[1],
+			Latitude:          parts[2],
+			Sector:            parts[3],
+			Area:              parts[4],
+			DistrictCode:      parts[5],
+			District:          parts[6],
+			SubprefectureCode: parts[7],
+			SubprefectureName: parts[8],
+			Region5:           parts[9],
+			Region8:           parts[10],
+			FairName:          parts[11],
+			Registry:          parts[12],
+			Address:           parts[13],
+			Number:            parserNumber(parts[14]),
+			Neighborhood:      parts[15],
+			Reference:         parts[16],
 		}
 		fairs = append(fairs, fair)
 	}

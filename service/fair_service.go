@@ -26,6 +26,10 @@ func (s DefaultFairService) Create(params []byte) (*domain.Fair, *errs.AppError)
 		return nil, errs.NewUnexpectedError(err.Error())
 	}
 
+	if err := fair.Validate(); err != nil {
+		return nil, err
+	}
+
 	err := s.repo.Create(&fair)
 	return &fair, err
 }
@@ -42,6 +46,10 @@ func (s DefaultFairService) Update(params []byte, id string) (*domain.Fair, *err
 
 	if err := json.Unmarshal(params, &fair); err != nil {
 		return nil, errs.NewUnexpectedError(err.Error())
+	}
+
+	if err := fair.Validate(); err != nil {
+		return nil, err
 	}
 
 	err = s.repo.Update(fair)

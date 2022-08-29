@@ -15,11 +15,7 @@ type FairRepositoryDb struct {
 func (r FairRepositoryDb) Create(fair *Fair) *errs.AppError {
 	err := r.dbClient.Debug().Create(&fair).Error
 	if err != nil {
-		if fair.Validation.HasError() {
-			return errs.NewValidationError(fair.Validation.Errors)
-		} else {
-			return errs.NewUnexpectedError(err.Error())
-		}
+		return errs.NewUnexpectedError(err.Error())
 	}
 	return nil
 }
@@ -27,11 +23,7 @@ func (r FairRepositoryDb) Create(fair *Fair) *errs.AppError {
 func (r FairRepositoryDb) Update(fair *Fair) *errs.AppError {
 	err := r.dbClient.Debug().Updates(&fair).Error
 	if err != nil {
-		if fair.Validation.HasError() {
-			return errs.NewValidationError(fair.Validation.Errors)
-		} else {
-			return errs.NewUnexpectedError(err.Error())
-		}
+		return errs.NewUnexpectedError(err.Error())
 	}
 	return nil
 }

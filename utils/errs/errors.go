@@ -1,6 +1,9 @@
 package errs
 
-import "net/http"
+import (
+	"log"
+	"net/http"
+)
 
 type AppError struct {
 	Code             int                 `json:",omitempty"`
@@ -9,6 +12,7 @@ type AppError struct {
 }
 
 func (e AppError) ToMessage() *AppError {
+	log.Println(e.Message, e.ValidationErrors)
 	return &AppError{
 		Message:          e.Message,
 		ValidationErrors: e.ValidationErrors,

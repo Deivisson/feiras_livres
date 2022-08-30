@@ -39,6 +39,8 @@ Observação: Crie e utilize o Environment do postman para configurar o host a s
 
 ### TODO
 1 - Documentar os EndPoints no Swagger para uma melhor compreensão das mesmas.
+
 2 - Criar shell Script para iniciar a aplicação e não precisar criar a network manualmente
+
 3 - Melhorar a cobertura de testes e explorar outros tipos de testes como de integração
 

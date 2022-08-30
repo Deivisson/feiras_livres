@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/Deivisson/feiras_livres/utils/errs"
+	"github.com/Deivisson/free_fairs/utils/errs"
 	"github.com/gorilla/mux"
 )
 

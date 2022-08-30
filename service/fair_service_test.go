@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/Deivisson/feiras_livres/domain"
-	mockdomain "github.com/Deivisson/feiras_livres/mocks/domain"
-	"github.com/Deivisson/feiras_livres/utils/errs"
+	"github.com/Deivisson/free_fairs/domain"
+	mockdomain "github.com/Deivisson/free_fairs/mocks/domain"
+	"github.com/Deivisson/free_fairs/utils/errs"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )

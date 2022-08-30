@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/Deivisson/feiras_livres/app"
+	"github.com/Deivisson/free_fairs/app"
 )
 
 func main() {

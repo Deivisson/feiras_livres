@@ -682,3 +682,164 @@
 2022/08/30 13:26:15 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
 [0m[33m[0.624ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'reference') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
 2022/08/30 13:26:15 Starting server on :8000 ...
+[gin] Building...
+[gin] [97;31;1mBuild failed[0m
+main.go:4:2: no required module provides package github.com/Deivisson/feiras_livres/app; to add it:
+	go get github.com/Deivisson/feiras_livres/app
+
+[gin] Building...
+[gin] [97;32;1mBuild finished[0m
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:167
+[0m[33m[9.058ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND table_type = 'BASE TABLE'
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:42
+[0m[33m[0.351ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:369
+[0m[33m[13.556ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'unico_development' AND table_schema = CURRENT_SCHEMA() AND table_name = 'fairs'
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:511
+[0m[33m[0.514ms] [34;1m[rows:-][0m SELECT * FROM "fairs" LIMIT 1
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:439
+[0m[33m[21.756ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'unico_development' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'fairs'
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:469
+[0m[33m[0.927ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'fairs'
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[3.911ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[3.112ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'longitude') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[2.681ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'latitude') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[2.839ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'sector') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[2.504ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'area') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[2.168ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'district_code') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.343ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'district') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.265ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'subprefecture_code') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.279ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'subprefecture_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.279ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'region5') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.235ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'region8') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.244ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'fair_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.254ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'registry') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.241ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'address') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.245ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'number') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.235ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'neighborhood') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:01 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.244ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'reference') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/08/30 13:29:01 Starting server on :8000 ...
+[gin] Listening on port 3000
+[gin] Building...
+[gin] [97;32;1mBuild finished[0m
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:167
+[0m[33m[5.428ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND table_type = 'BASE TABLE'
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:42
+[0m[33m[0.430ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:369
+[0m[33m[15.918ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'unico_development' AND table_schema = CURRENT_SCHEMA() AND table_name = 'fairs'
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:511
+[0m[33m[0.493ms] [34;1m[rows:-][0m SELECT * FROM "fairs" LIMIT 1
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:439
+[0m[33m[9.798ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'unico_development' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'fairs'
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:469
+[0m[33m[1.307ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.relfilenode AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'fairs'
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[6.236ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[3.766ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'longitude') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[2.138ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'latitude') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[1.814ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'sector') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[1.819ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'area') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[1.840ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'district_code') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.308ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'district') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.242ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'subprefecture_code') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.243ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'subprefecture_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.248ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'region5') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.223ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'region8') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.220ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'fair_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.211ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'registry') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.219ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'address') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.218ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'number') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.217ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'neighborhood') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2022/08/30 13:29:26 [32m/go/pkg/mod/gorm.io/driver/postgres@v1.3.9/migrator.go:240
+[0m[33m[0.217ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'fairs' AND column_name = 'reference') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'fairs' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+2022/08/30 13:29:26 Starting server on :8000 ...
+
+2022/08/30 13:30:37 [32m/code/domain/fair_repositoryDb.go:39
+[0m[33m[16.047ms] [34;1m[rows:880][0m SELECT * FROM "fairs"

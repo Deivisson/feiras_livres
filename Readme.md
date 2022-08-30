@@ -34,8 +34,8 @@ go test -coverprofile cover.out  -v ./...
 Na raiz do repository há uma collection do postman a ser importada e por ser utilizada para testes. Nome arquivo: Fairs.postman_collection.json
 
 Observação: Crie e utilize o Environment do postman para configurar o host a ser utilizado. Veja o exemplo:
-![alt text](https://github.com/Deivisson/feiras_livres/blob/master/postman_environment_default.png?raw=true)
-![alt text](https://github.com/Deivisson/feiras_livres/blob/master/postman_environment_debug.png?raw=true)
+![alt text](https://github.com/Deivisson/free_fairs/blob/master/postman_environment_default.png?raw=true)
+![alt text](https://github.com/Deivisson/free_fairs/blob/master/postman_environment_debug.png?raw=true)
 
 ### TODO
 1 - Documentar os EndPoints no Swagger para uma melhor compreensão das mesmas.

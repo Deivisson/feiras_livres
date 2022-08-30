@@ -3,8 +3,8 @@ package service
 import (
 	"encoding/json"
 
-	"github.com/Deivisson/feiras_livres/domain"
-	"github.com/Deivisson/feiras_livres/utils/errs"
+	"github.com/Deivisson/free_fairs/domain"
+	"github.com/Deivisson/free_fairs/utils/errs"
 )
 
 type FairService interface {

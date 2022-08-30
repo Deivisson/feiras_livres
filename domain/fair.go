@@ -3,7 +3,7 @@ package domain
 import (
 	"fmt"
 
-	"github.com/Deivisson/feiras_livres/utils/errs"
+	"github.com/Deivisson/free_fairs/utils/errs"
 )
 
 type Fair struct {
@@ -34,7 +34,7 @@ type FairSearchRequestDTO struct {
 	Neighborhood string `json:"bairro"`
 }
 
-//go:generate mockgen -destination=../mocks/domain/mockFairRepository.go -package=domain github.com/Deivisson/feiras_livres/domain FairRepository
+//go:generate mockgen -destination=../mocks/domain/mockFairRepository.go -package=domain github.com/Deivisson/free_fairs/domain FairRepository
 type FairRepository interface {
 	Create(*Fair) *errs.AppError
 	BulkCreate([]Fair) *errs.AppError

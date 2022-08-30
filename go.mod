@@ -1,4 +1,4 @@
-module github.com/Deivisson/feiras_livres
+module github.com/Deivisson/free_fairs
 
 go 1.16
 

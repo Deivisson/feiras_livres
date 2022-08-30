@@ -3,7 +3,7 @@ package migrations
 import (
 	"log"
 
-	"github.com/Deivisson/feiras_livres/domain"
+	"github.com/Deivisson/free_fairs/domain"
 	"gorm.io/gorm"
 )
 

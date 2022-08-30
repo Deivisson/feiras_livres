@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/Deivisson/feiras_livres/domain"
+	"github.com/Deivisson/free_fairs/domain"
 )
 
 // It gonna be imported only if table is empty

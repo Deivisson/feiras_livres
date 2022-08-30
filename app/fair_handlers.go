@@ -3,7 +3,7 @@ package app
 import (
 	"net/http"
 
-	"github.com/Deivisson/feiras_livres/service"
+	"github.com/Deivisson/free_fairs/service"
 )
 
 type FairHandlers struct {

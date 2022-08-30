@@ -12,6 +12,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
+/// TODO: Create a lib/package to these functions
 func writeResponse(w http.ResponseWriter, code int, data interface{}) {
 	w.Header().Add("Content-Type", "application/json")
 	w.WriteHeader(code)

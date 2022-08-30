@@ -23,10 +23,11 @@ func Run() {
 
 	router := mux.NewRouter()
 
-	//wiring
 	dbClient := connectDB()
 	fairRepositoryDb := domain.NewFairRepositoryDb(dbClient)
 	fh := FairHandlers{service.NewFairService(fairRepositoryDb)}
+
+	// Database initializations
 	migrations.Load(dbClient)
 	seeds.ImportCsvFile(fairRepositoryDb)
 
@@ -41,7 +42,7 @@ func Run() {
 	address := os.Getenv("SERVER_ADDRESS")
 	port := os.Getenv("SERVER_PORT")
 	if IsDebugMode() {
-		port = os.Getenv("DEBUG_PORT")
+		port = os.Getenv("DEBUG_PORT") // Debug port is defined on launch.json
 	}
 	log.Print(fmt.Sprintf("Starting server on %s:%s ...", address, port))
 	log.Fatal(http.ListenAndServe(fmt.Sprintf("%s:%s", address, port), router))

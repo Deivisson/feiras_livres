@@ -5,6 +5,7 @@ import (
 	"net/http"
 )
 
+// TODO: Create a lib/package to this implementation
 type AppError struct {
 	Code             int                 `json:",omitempty"`
 	Message          string              `json:"message,omitempty"`

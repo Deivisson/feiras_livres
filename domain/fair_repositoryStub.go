@@ -43,6 +43,7 @@ func (s FairRepositoryStub) HasAny() (bool, *errs.AppError) {
 }
 
 func NewFairRepositoryStub() FairRepositoryStub {
+	// TODO: Use a fake Generator
 	fairs := []Fair{
 		{
 			Id:                "1",

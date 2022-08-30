@@ -113,6 +113,8 @@ func buildFair(payload []byte) *domain.Fair {
 func buildDefaultPayload() []byte {
 	return buildPayload("1", "FEIRA VILA FORMOSA")
 }
+
+// TODO: Use a fake Generator
 func buildPayload(id, nomeFeira string) []byte {
 	data, _ := json.Marshal(
 		map[string]string{

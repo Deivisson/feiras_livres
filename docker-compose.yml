@@ -47,6 +47,7 @@ services:
     command: bash -c "/go/bin/gin -a 8000 -i run main.go >> log.txt"
     depends_on:
       - build_dev_image
+      - db
 
 networks:
   default:

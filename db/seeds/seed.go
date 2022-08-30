@@ -10,6 +10,7 @@ import (
 	"github.com/Deivisson/feiras_livres/domain"
 )
 
+// It gonna be imported only if table is empty
 func ImportCsvFile(repo domain.FairRepository) {
 	path, err := os.Getwd()
 	if err != nil {
@@ -17,7 +18,7 @@ func ImportCsvFile(repo domain.FairRepository) {
 	}
 
 	if ok, err := repo.HasAny(); err != nil {
-		log.Fatal("Error on check if has any fair")
+		log.Fatal("Error on check if has any fair in table")
 	} else if ok {
 		return
 	}

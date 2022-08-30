@@ -7,13 +7,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_should_return_errors_on_required_data_is_empty(t *testing.T) {
+func Test_should_return_errors_when_required_data_is_empty(t *testing.T) {
 	fair := Fair{}
 	errs := fair.Validate()
 	assertRequiredFields(t, errs.ValidationErrors)
 }
 
-func Test_should_return_errors_on_max_length_is_greater_than_allowed(t *testing.T) {
+func Test_should_return_errors_when_max_length_is_greater_than_allowed(t *testing.T) {
+	// TODO: Use a fake Generator
 	fair := Fair{
 		Longitude:         strings.Repeat("x", 11),
 		Latitude:          strings.Repeat("x", 11),
